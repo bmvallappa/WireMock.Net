@@ -41,11 +41,6 @@ steps:
   condition: and(succeeded(), eq(variables['RUN_SONAR'], 'yes'))
 
 
-# Upload coverage to codecov.io
-- script: |
-    %USERPROFILE%\.nuget\packages\codecov\1.10.0\tools\codecov.exe -f "./test/WireMock.Net.Tests/coverage.opencover.xml" -t $(CODECOV_TOKEN)
-  displayName: Upload coverage to codecov.io
-
 # https://github.com/microsoft/azure-pipelines-tasks/issues/12212
 - task: PublishTestResults@2
   condition: and(succeeded(), eq(variables['PUBLISH_TESTRESULTS'], 'yes'))
