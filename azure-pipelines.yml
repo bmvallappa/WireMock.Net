@@ -40,9 +40,6 @@ steps:
   displayName: End SonarScanner
   condition: and(succeeded(), eq(variables['RUN_SONAR'], 'yes'))
 
-- task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
-  displayName: 'WhiteSource Bolt'
-  condition: and(succeeded(), eq(variables['RUN_WHITESOURCE'], 'yes'))
 
 # Upload coverage to codecov.io
 - script: |
